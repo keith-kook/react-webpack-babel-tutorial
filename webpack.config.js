@@ -8,19 +8,21 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 module.exports = {
-  entry: path.join(__dirname,'src','index.js'),
+  entry: path.join(__dirname,'js','index.js'),
   output: {
     path: path.join(__dirname,'build'),
     filename: 'index.bundle.js'
   },
+  devtool: 'eval-cheap-module-source-map',
   mode: process.env.NODE_ENV || 'development',
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
   devServer: {
-    contentBase: path.join(__dirname,'src')
+    contentBase: path.join(__dirname,'src'),
   },
   module: {
+
     rules: [
       {
         // this is so that we can compile any React,
